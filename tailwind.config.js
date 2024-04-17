@@ -7,5 +7,8 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [require("daisyui"),require("tailgrids/plugin")],
+  boxShadow: {
+    card: "0px 35px 120px -15px #211e35",
+  },
+  plugins: [require('flowbite/plugin'),require("daisyui"),require("tailgrids/plugin")],
 }
