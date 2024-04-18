@@ -5,7 +5,7 @@ const ChatFeed = ({ question, answer }) => {
   const [conversation, setConversation] = useState([]);
 
   useEffect(() => {
-    if (question && answer) {
+    if (question || answer) {
       setConversation((prevConversation) => [...prevConversation, { question, answer }]);
     }
   }, [question, answer]);
@@ -21,7 +21,7 @@ const ChatFeed = ({ question, answer }) => {
           )}
           {chat.answer && (
             <div className='chat chat-start'>
-              <div className='chat-bubble bg-white text-black'>{chat.answer}</div>
+              <div className='chat-bubble bg-white text-black overflow-auto' style={{width: '900px', wordWrap: 'break-word'}}>{chat.answer}</div>
             </div>
           )}
         </div>
