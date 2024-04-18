@@ -12,9 +12,17 @@ const ChatScreen = () => {
     const [question, setQuestion] = useState('');
     const [answer,setAnswer]=useState('')
     const [q,setQ]=useState('')
+    const [pdfInfo,setPdfInfo]=useState({
+        name:'',
+        size:'',
+    })
 
     const handleFileChange = (e) => {
         setFile(e.target.files[0]);
+        setPdfInfo({
+            name:e.target.files[0].name,
+            size:e.target.files[0].size
+        })
     };
 
     const handleTextChange = (e) => {
@@ -49,6 +57,7 @@ const ChatScreen = () => {
             console.log(response.data.answer)
             setAnswer(response.data.answer)
             setQ(question)
+            
 
             
             // Optionally, you can handle success response here
@@ -57,7 +66,7 @@ const ChatScreen = () => {
             // Optionally, you can handle error response here
         }
     };
-
+console.log(pdfInfo)
 
 
 
@@ -75,7 +84,7 @@ const ChatScreen = () => {
                 <div className="relative flex flex-col flex-auto h-full p-6">
                     <div className=" overflow-y-auto flex flex-col flex-auto flex-shrink-0 rounded-2xl h-full p-4 relative bg-gradient-to-r from-rose-500 to-red-500">
                         {/* Chat bubbles */}
-                        <ChatFeed  question={q} answer={answer}/>
+                        <ChatFeed  question={q} answer={answer} name={pdfInfo.name} size={pdfInfo.size}/>
                         <div className="flex-grow"></div> {/* This will push the ChatInput to the bottom */}
                     </div>
                     <div className="fixed bottom-10 left-0 w-full z-50">
