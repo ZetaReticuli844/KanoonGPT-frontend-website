@@ -36,7 +36,7 @@ const Signin = () => {
       localStorage.setItem('refresh_token', res.data.refresh_token);
       console.log(res.data.access_token)
     });
-      navigate('/')
+      navigate('/chat')
 
   };
 
